@@ -22,3 +22,32 @@ and does the following:
 import sys
 import calendar
 from datetime import datetime
+
+
+user_date = input("Enter a month and a year in the format MM/YYYY: ")
+
+if "/" in user_date: 
+    month, year = user_date.split("/")
+    if month.isnumeric() and year.isnumeric():
+        print(calendar.monthcalendar(int(year), int(month)))
+    else:
+        print("Please input a proper date using the format MM/YYYY")
+elif user_date.isnumeric():
+    if int(user_date) in range(1-12):
+        month = user_date
+        year = 2019
+        print(calendar.monthcalendar(int(year), int(month)))
+    else:
+        month= 9
+        year = 2019
+        print(calendar.monthcalendar(int(year), int(month)))
+elif user_date == "":
+    month= 9
+    year = 2019
+    print(calendar.monthcalendar(int(year), int(month)))
+else:
+    print("Please input a proper date using the format MM/YYYY")
+exit()
+
+
+
